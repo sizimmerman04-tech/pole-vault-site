@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Gill Sans", sans-serif;
+  background: #fef9ef;
+  color: #1f2a38;
+}
+
+header {
+  background: #143d59;
+  color: #ffffff;
+  padding: 22px;
+}
+
+header a {
+  color: #ffdb85;
+}
+
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.panel {
+  background: #ffffff;
+  border: 2px solid #d7e3f1;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+#intro-block {
+  background: #fff9e8;
+  position: relative;
+}
+
+#media-block {
+  background: #eef7ff;
+  position: relative;
+}
+
+#insight-block {
+  background: #edf8ee;
+  position: relative;
+}
+
+.highlight {
+  color: #0f5f3e;
+  font-weight: 700;
+}
+
+img.track-photo {
+  width: 100%;
+  max-width: 560px;
+  border-radius: 10px;
+  border: 3px solid #143d59;
+}
+
+.tableauPlaceholder {
+  max-width: 100%;
+}

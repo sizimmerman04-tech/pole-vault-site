@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pole Vault Session Planner App</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #0f3550, #1f6ea3);
+      color: #13212d;
+    }
+
+    .app-shell {
+      max-width: 760px;
+      margin: 24px auto;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 9px;
+      border: 1px solid #a9bfd1;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 14px;
+      background: #145f8f;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    button:hover {
+      background: #0f4f78;
+    }
+
+    .result {
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 8px;
+      background: #ecf6ff;
+      border: 1px solid #c9e2f5;
+      min-height: 80px;
+    }
+
+    .links {
+      margin-top: 18px;
+    }
+
+    .links a {
+      color: #0d4770;
+      margin-right: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app-shell">
+    <h1>Pole Vault Session Planner</h1>
+    <p>This AI-assisted mini app builds a one-day practice plan from your inputs.</p>
+
+    <div class="grid">
+      <div>
+        <label for="experience">Experience Level</label>
+        <select id="experience">
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="focus">Session Focus</label>
+        <select id="focus">
+          <option value="approach">Approach Accuracy</option>
+          <option value="plant">Plant and Takeoff</option>
+          <option value="swing">Swing and Inversion</option>
+          <option value="clearance">Bar Clearance</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="time">Training Time (minutes)</label>
+        <input id="time" type="number" min="30" max="180" value="75">
+      </div>
+
+      <div>
+        <label for="energy">Energy Today (1-10)</label>
+        <input id="energy" type="number" min="1" max="10" value="7">
+      </div>
+    </div>
+
+    <button id="buildBtn">Build Practice Plan</button>
+
+    <div id="output" class="result">Your plan will appear here.</div>
+
+    <div class="links">
+      <a href="scratch.html">Back to Scratch Page</a>
+      <a href="index.html">Professional Home</a>
+    </div>
+  </main>
+
+  <script>
+    const buildBtn = document.getElementById('buildBtn');
+    const output = document.getElementById('output');
+
+    function buildPlan() {
+      const experience = document.getElementById('experience').value;
+      const focus = document.getElementById('focus').value;
+      const time = Number(document.getElementById('time').value);
+      const energy = Number(document.getElementById('energy').value);
+
+      if (!time || time < 30 || time > 180 || !energy || energy < 1 || energy > 10) {
+        output.innerHTML = '<strong>Please enter valid values:</strong> time 30-180 and energy 1-10.';
+        return;
+      }
+
+      const warmup = 30;
+      const remainingAfterWarmup = Math.max(0, time - warmup);
+      const vaultSection = Math.round(remainingAfterWarmup * 0.75);
+      const cooldown = Math.max(0, time - warmup - vaultSection);
+
+      const intensity = energy <= 4 ? 'Low' : energy <= 7 ? 'Moderate' : 'High';
+
+      const focusTipMap = {
+        approach: 'Use check marks and count steps out loud for consistency.',
+        plant: 'Keep top hand tall and drive knee at takeoff.',
+        swing: 'Press the trail leg long before fast inversion.',
+        clearance: 'Practice turn timing on low bar reps first.'
+      };
+
+      const repMap = {
+        beginner: '6-10 short-approach jumps',
+        intermediate: '10-14 mixed-approach jumps',
+        advanced: '12-18 high-quality full-approach jumps'
+      };
+
+      output.innerHTML = `
+        <strong>${experience[0].toUpperCase() + experience.slice(1)} Plan (${intensity} Day)</strong><br>
+        Warm-up: ${warmup} min<br>
+        Vault Section (${focus}): ${vaultSection} min (${repMap[experience]})<br>
+        Cool Down + Notes: ${cooldown} min<br><br>
+        <strong>Coach Cue:</strong> ${focusTipMap[focus]}
+      `;
+    }
+
+    buildBtn.addEventListener('click', buildPlan);
+  </script>
+</body>
+</html>

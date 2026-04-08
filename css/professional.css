@@ -1,0 +1,42 @@
+:root {
+  --primary: #12324a;
+  --accent: #2f86c9;
+  --soft: #f3f7fb;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--soft);
+  color: #1a1a1a;
+}
+
+.hero {
+  background: linear-gradient(120deg, var(--primary), #1f4f74);
+  color: #fff;
+  border-radius: 1rem;
+}
+
+.card-lift {
+  border: none;
+  border-radius: 0.9rem;
+  box-shadow: 0 10px 24px rgba(18, 50, 74, 0.08);
+}
+
+.section-title {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.footer-note {
+  color: #4b647a;
+  font-size: 0.95rem;
+}
+
+.icon-link {
+  color: #e9f3ff;
+  text-decoration: none;
+}
+
+.icon-link:hover {
+  color: #ffffff;
+}

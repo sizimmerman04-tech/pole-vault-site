@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silas Zimmerman | Website</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg, #f3f7f9 0%, #e4ecf0 100%);
+      color: #13212d;
+    }
+    h1, h2, h3, h4 { margin-top: 0; }
+    p, li { line-height: 1.5; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #0c2438;
+      color: #fff;
+      padding: 14px 20px;
+      border-bottom: 4px solid #1f4e79;
+    }
+
+    .site-nav a {
+      color: #d8ecff;
+      margin-right: 14px;
+      text-decoration: underline;
+    }
+
+    .site-nav a:visited, a:visited { color: #b8d8f3; }
+    .site-nav a:hover, a:hover {
+      color: #fff;
+      background: #1f4e79;
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 860px;
+      margin: 24px auto;
+      padding: 0 16px 40px;
+    }
+
+    .card {
+      background: #fff;
+      border: 2px solid #c5d5e3;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      padding: 18px;
+    }
+
+    .highlight {
+      background: #ffe8a3;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .fixed-note {
+      position: fixed;
+      right: 12px;
+      bottom: 12px;
+      background: #1f4e79;
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .float-photo {
+      float: right;
+      width: 220px;
+      max-width: 42%;
+      height: auto;
+      margin: 0 0 12px 16px;
+      border: 3px solid #1f4e79;
+      border-radius: 10px;
+      background: #f5fbff;
+      object-fit: cover;
+    }
+
+    .clearfix::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    .layer-wrap {
+      position: relative;
+      height: 120px;
+      margin-top: 16px;
+    }
+
+    .layer {
+      position: absolute;
+      width: 220px;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .back {
+      top: 28px;
+      left: 12px;
+      z-index: 1;
+      background: #bdd8ef;
+    }
+
+    .front {
+      top: 50px;
+      left: 40px;
+      z-index: 2;
+      background: #5f9ac7;
+      color: #fff;
+    }
+
+    @media (max-width: 700px) {
+      .float-photo {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 0 0 14px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <h1>Silas Zimmerman</h1>
+    <nav class="site-nav">
+      <a href="#home">Home</a>
+      <a href="#resume">Resume</a>
+      <a href="#about">About Me</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="card">
+      <h2>Professional Summary</h2>
+      <p>Finance student-athlete at Brigham Young University with hands-on machining and operations experience.</p>
+      <p><a href="#skills">Jump to Skills</a> | <a href="#experience">Jump to Experience</a></p>
+
+      <h3 id="skills">Skills</h3>
+      <ul>
+        <li>Heavy equipment operator</li>
+        <li>NCAA D1 track and field athlete</li>
+        <li>3D design</li>
+        <li>CNC machinist experience</li>
+      </ul>
+    </section>
+
+    <section id="resume" class="card">
+      <h2>Resume</h2>
+      <h3>Education</h3>
+      <p><strong>Brigham Young University</strong> - Provo, UT<br />Bachelor of Science: Finance (Expected May 2029)<br />NCAA D1 Track and Field Scholarship</p>
+
+      <h3 id="experience">Experience</h3>
+      <p><strong>Brigham Young University Men&apos;s Track and Field</strong> - Pole Vault, Provo, UT (May 2021 - Present)</p>
+      <ul>
+        <li>Train 6 to 8 hours daily to maintain elite performance.</li>
+        <li>Apply coaching feedback and time management to balance athletics and academics.</li>
+      </ul>
+
+      <p><strong>Dirty T LLC</strong> - CNC Machinist Intern, Houston, TX (Jun 2022 - Aug 2022)</p>
+      <ul>
+        <li>Programmed, set up, and operated CNC lathes and mills to exact specifications.</li>
+        <li>Performed quality inspections using calipers, micrometers, and gauges.</li>
+        <li>Reduced downtime through preventative maintenance and troubleshooting.</li>
+      </ul>
+
+      <p><strong>Harris County Clerk&apos;s Office</strong> - Election Poll Worker, Houston, TX (Jun 2021 - Jun 2022)</p>
+      <ul>
+        <li>Operated and troubleshot voting machines to maintain smooth operations.</li>
+        <li>Coordinated polling station setup and breakdown in compliance with procedures.</li>
+      </ul>
+
+      <p><strong>Volunteer Service:</strong> Full-time Representative, Lima, Peru (Jul 2023 - Jun 2025) - supervised teams, submitted weekly reports, and worked in Spanish.</p>
+    </section>
+
+    <section id="about" class="card clearfix">
+      <img class="float-photo" src="silas-track.jpg" alt="Silas Zimmerman in BYU track uniform" />
+
+      <h2>About Me</h2>
+      <p>
+        I am committed to high performance in both athletics and professional work.
+        <span style="font-style: italic;">I thrive in fast-paced, technical environments</span>
+        that require precision, discipline, and teamwork.
+      </p>
+
+      <div class="layer-wrap">
+        <div class="layer back">Field Performance</div>
+        <div class="layer front">Technical Experience</div>
+      </div>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p>Phone: <span class="highlight">(801) 623-3025</span></p>
+      <p>Email: <span class="highlight">sizimmerman.04@gmail.com</span></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/byugoat" target="_blank">www.linkedin.com/in/byugoat</a></p>
+      <p><a href="#top">Back to top</a></p>
+    </section>
+  </main>
+
+  <aside class="fixed-note">Open in VS Code + Live Server</aside>
+</body>
+</html>
